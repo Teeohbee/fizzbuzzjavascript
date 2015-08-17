@@ -1,11 +1,7 @@
 var Fizzbuzz = function() {};
 
 Fizzbuzz.prototype._isDivisbleBy = function(number, divisor) {
-  if (number % divisor === 0){
-    return true;
-  } else {
-      return false;
-  }
+  return (number % divisor === 0);
 };
 
 Fizzbuzz.prototype.isDivisbleByThree = function(number) {
@@ -18,4 +14,17 @@ Fizzbuzz.prototype.isDivisbleByFive = function(number) {
 
 Fizzbuzz.prototype.isDivisbleByFifteen = function(number) {
   return this._isDivisbleBy(number, 15);
+};
+
+Fizzbuzz.prototype.says = function (number) {
+  if (this.isDivisbleByFifteen(number)) {
+    return "Fizzbuzz";
+  }
+  if (this.isDivisbleByThree(number)) {
+    return "Fizz";
+  }
+  if (this.isDivisbleByFive(number)) {
+    return "Buzz";
+  }
+  return number;
 };
